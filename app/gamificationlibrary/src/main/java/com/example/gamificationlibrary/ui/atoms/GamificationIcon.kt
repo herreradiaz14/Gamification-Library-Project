@@ -5,11 +5,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star // Example default icon
 import androidx.compose.runtime.Composable
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource // For Android resource IDs
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -35,16 +39,23 @@ fun GamificationIcon(
     tintColor: Color = Color.Unspecified,
     size: Dp = 24.dp
 ) {
-    Image(
-        painter = painter ?: run {
-            requireNotNull(imageVector) { "Either painter or imageVector must be provided." }
-            null
-        },
-        imageVector = imageVector ?: Icons.Default.Star, // Fallback if no painter, use default Star
-        contentDescription = contentDescription,
-        modifier = modifier.size(size),
-        colorFilter = if (tintColor != Color.Unspecified) ColorFilter.tint(tintColor) else null
-    )
+    if (painter != null) {
+        Image(
+            painter = painter,
+            contentDescription = contentDescription,
+            modifier = modifier.size(size),
+            colorFilter = if (tintColor != Color.Unspecified) ColorFilter.tint(tintColor) else null
+        )
+    } else {
+        requireNotNull(imageVector) { "Either painter or imageVector must be provided." }
+
+        Image(
+            imageVector = imageVector,
+            contentDescription = contentDescription,
+            modifier = modifier.size(size),
+            colorFilter = if (tintColor != Color.Unspecified) ColorFilter.tint(tintColor) else null
+        )
+    }
 }
 
 @Preview

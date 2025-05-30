@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -55,6 +54,7 @@ dependencies {
     implementation(libs.androidx.ui.foundation)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.activity.compose.v190)
 
     // Lifecycle KTX for ViewModel (optional, but good practice for UI state)
     implementation(libs.androidx.lifecycle.runtime.ktx)

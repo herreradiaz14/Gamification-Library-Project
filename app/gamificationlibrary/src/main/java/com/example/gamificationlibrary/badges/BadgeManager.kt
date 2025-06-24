@@ -1,9 +1,7 @@
 package com.example.gamificationlibrary.badges
 
 import com.example.gamificationlibrary.badges.data.Badge
-import com.example.gamificationlibrary.badges.data.UserBadgesData
 import com.example.gamificationlibrary.core.GamificationEvent
-import com.example.gamificationlibrary.core.data.UserGamificationData
 import com.example.gamificationlibrary.storage.IGamificationStorage
 
 /**

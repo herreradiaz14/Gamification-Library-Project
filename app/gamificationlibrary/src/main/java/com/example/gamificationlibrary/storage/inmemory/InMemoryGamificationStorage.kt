@@ -13,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap
  */
 class InMemoryGamificationStorage : IGamificationStorage {
 
+
     // Stores gamification data per entityId
     private val storage: ConcurrentHashMap<String, UserGamificationData> = ConcurrentHashMap()
 
@@ -36,4 +37,6 @@ class InMemoryGamificationStorage : IGamificationStorage {
     override fun resetUserGamificationData(entityId: String) {
         storage.remove(entityId)
     }
+
+    fun getAllUsers(): List<UserGamificationData> = storage.values.toList()
 }

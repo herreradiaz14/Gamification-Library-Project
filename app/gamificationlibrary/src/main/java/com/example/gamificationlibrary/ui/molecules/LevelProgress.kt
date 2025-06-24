@@ -1,22 +1,15 @@
 package com.example.gamificationlibrary.ui.molecules
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.gamificationlibrary.levels.data.LevelDefinition
 import com.example.gamificationlibrary.ui.atoms.GamificationProgressBar
 import com.example.gamificationlibrary.ui.atoms.GamificationText
 
@@ -31,7 +24,7 @@ import com.example.gamificationlibrary.ui.atoms.GamificationText
  * @param modifier Modifier to be applied to the column.
  * @param levelTextColor The color of the level number and name.
  * @param progressTextColor The color of the progress text (e.g., "123/456 points").
- * @param progressBarColor The color of the progress bar.
+ * @param progressBarBrush The brush used for the progress bar (can be solid or gradient).
  * @param progressBarBackgroundColor The background color of the progress bar track.
  */
 @Composable
@@ -44,7 +37,9 @@ fun LevelProgress(
     modifier: Modifier = Modifier,
     levelTextColor: Color = Color.Black,
     progressTextColor: Color = Color.Gray,
-    progressBarColor: Color = Color(0xFF4CAF50),
+    progressBarBrush: Brush = Brush.horizontalGradient(
+        colors = listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))
+    ),
     progressBarBackgroundColor: Color = Color.LightGray
 ) {
     Column(
@@ -57,16 +52,22 @@ fun LevelProgress(
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold
         )
+
         Spacer(modifier = Modifier.height(8.dp))
 
+        // 🔹 Usa la versión del ProgressBar que acepte Brush
         GamificationProgressBar(
             progress = progress,
-            modifier = Modifier.fillMaxWidth().height(12.dp),
-            progressColor = progressBarColor,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(12.dp),
+            progressBrush = progressBarBrush,
             backgroundColor = progressBarBackgroundColor,
             cornerRadius = 6.dp
         )
+
         Spacer(modifier = Modifier.height(4.dp))
+
         GamificationText(
             text = "$currentPoints / $nextLevelPointsRequired Points",
             color = progressTextColor,

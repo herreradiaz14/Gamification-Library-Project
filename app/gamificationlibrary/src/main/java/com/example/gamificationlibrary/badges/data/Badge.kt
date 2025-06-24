@@ -1,7 +1,6 @@
 package com.example.gamificationlibrary.badges.data
 
 import com.example.gamificationlibrary.badges.BadgeCondition
-import com.example.gamificationlibrary.badges.conditions.PointsThresholdCondition // Import for example usage
 
 /**
  * Represents a single badge definition within the gamification system.

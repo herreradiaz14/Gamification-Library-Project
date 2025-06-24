@@ -1,9 +1,7 @@
 package com.example.gamificationlibrary.levels
 
 import com.example.gamificationlibrary.core.GamificationEvent
-import com.example.gamificationlibrary.core.data.UserGamificationData
 import com.example.gamificationlibrary.levels.data.LevelDefinition
-import com.example.gamificationlibrary.levels.data.UserLevelData
 import com.example.gamificationlibrary.storage.IGamificationStorage
 
 /**
@@ -87,6 +85,18 @@ class LevelManager(
      */
     fun getLevelProgress(entityId: String): Float {
         return storage.loadUserGamificationData(entityId).levelData.progressToNextLevel
+    }
+
+    /**
+     * Retrieves the total points required to reach the next level beyond the current level.
+     *
+     * @param currentLevel The user's current level.
+     * @return The total points required for the next level (currentLevel + 1). Returns -1 if the user is at the maximum defined level.
+     */
+    fun getNextLevelThreshold(currentLevel: Int): Int {
+        val nextLevelDef = levelDefinitions.find { it.level == currentLevel + 1 }
+        // If the next level definition is found, return its required points; otherwise, return -1 (max level)
+        return nextLevelDef?.pointsRequired ?: -1
     }
 
     /**

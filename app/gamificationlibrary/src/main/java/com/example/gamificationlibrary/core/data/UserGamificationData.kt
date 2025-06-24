@@ -3,6 +3,7 @@ package com.example.gamificationlibrary.core.data
 import com.example.gamificationlibrary.badges.data.UserBadgesData
 import com.example.gamificationlibrary.levels.data.UserLevelData
 import com.example.gamificationlibrary.points.data.UserPointsData
+
 // Import other data types as they are created
 
 /**
@@ -19,6 +20,7 @@ data class UserGamificationData(
     val entityId: String,
     val pointsData: UserPointsData,
     val badgesData: UserBadgesData,
-    val levelData: UserLevelData
+    val levelData: UserLevelData,
+    val leaderboardRank: Int? = null // New field
     // Add more gamification data sub-objects here (e.g., rewards, leaderboard stats)
 )

@@ -1,5 +1,4 @@
 package com.example.gamificationlibrary.storage
-
 import com.example.gamificationlibrary.core.data.UserGamificationData
 
 /**

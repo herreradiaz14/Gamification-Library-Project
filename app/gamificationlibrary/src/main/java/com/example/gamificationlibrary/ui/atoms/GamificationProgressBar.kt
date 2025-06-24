@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -18,7 +19,7 @@ import androidx.compose.ui.unit.dp
  *
  * @param progress The current progress value, between 0.0f and 1.0f.
  * @param modifier Modifier to be applied to the ProgressBar.
- * @param progressColor The color of the progress indicator.
+ * @param progressBrush The brush (solid or gradient) for the progress indicator.
  * @param backgroundColor The background color of the progress bar track.
  * @param height The height of the progress bar.
  * @param cornerRadius The corner radius for the progress bar.
@@ -27,7 +28,7 @@ import androidx.compose.ui.unit.dp
 fun GamificationProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
-    progressColor: Color = Color(0xFF4CAF50), // Example green
+    progressBrush: Brush = Brush.horizontalGradient(listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))), // ✅ default gradient
     backgroundColor: Color = Color.LightGray,
     height: Dp = 8.dp,
     cornerRadius: Dp = 4.dp
@@ -37,14 +38,14 @@ fun GamificationProgressBar(
             .clip(RoundedCornerShape(cornerRadius))
             .background(backgroundColor)
             .height(height)
-            .fillMaxWidth() // Fill width by default, but can be overridden by modifier
+            .fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
-                .fillMaxWidth(progress.coerceIn(0f, 1f)) // Ensure progress is between 0 and 1
+                .fillMaxWidth(progress.coerceIn(0f, 1f))
                 .height(height)
                 .clip(RoundedCornerShape(cornerRadius))
-                .background(progressColor)
+                .background(progressBrush)
         )
     }
 }
@@ -52,5 +53,7 @@ fun GamificationProgressBar(
 @Preview
 @Composable
 private fun PreviewGamificationProgressBar() {
-    GamificationProgressBar(progress = 0.75f)
+    GamificationProgressBar(
+        progress = 0.75f
+    )
 }

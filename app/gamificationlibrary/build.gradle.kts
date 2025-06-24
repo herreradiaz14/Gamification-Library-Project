@@ -51,7 +51,7 @@ android {
 
 // Ensure this matches your namespace for consistency
 group = "com.example.gamificationlibrary" // Updated for consistency
-version = "0.1.0-SNAPSHOT"
+version = "0.1.1-SNAPSHOT"
 
 publishing {
     publications {

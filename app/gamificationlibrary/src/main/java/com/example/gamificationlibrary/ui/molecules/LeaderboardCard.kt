@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -16,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -58,15 +57,29 @@ fun LeaderboardCard(
                 )
             }
 
-            LazyColumn(
+            Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 val itemsToShow = maxVisibleItems?.let { entries.take(it) } ?: entries
-                itemsIndexed(itemsToShow) { index, entry ->
+                itemsToShow.forEachIndexed { index, entry ->
                     LeaderboardRow(entry = entry, rank = index + 1)
                 }
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewLeaderboardCard() {
+    LeaderboardCard(
+        entries = listOf(
+            LeaderboardEntry("user1", "Alice", 1500),
+            LeaderboardEntry("user2", "Bob", 1200),
+            LeaderboardEntry("user3", "Charlie", 900),
+            LeaderboardEntry("user4", "Diana", 800),
+            LeaderboardEntry("user5", "Ethan", 700)
+        )
+    )
 }

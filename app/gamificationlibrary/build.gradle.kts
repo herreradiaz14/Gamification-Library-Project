@@ -51,7 +51,7 @@ android {
 
 // Ensure this matches your namespace for consistency
 group = "com.example.gamificationlibrary" // Updated for consistency
-version = "0.1.1-SNAPSHOT"
+version = "0.1.4-SNAPSHOT"
 
 publishing {
     publications {
@@ -109,6 +109,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 

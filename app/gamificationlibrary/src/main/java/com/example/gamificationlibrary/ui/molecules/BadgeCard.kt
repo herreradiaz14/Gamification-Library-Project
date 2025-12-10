@@ -1,5 +1,7 @@
 package com.example.gamificationlibrary.ui.molecules
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -88,7 +90,6 @@ fun BadgeCard(
             GamificationIcon(
                 painter = painterResource(id = badge.iconResId),
                 contentDescription = "${badge.name} Icon",
-                tintColor = effectiveIconTint,
                 size = iconSize
             )
 
@@ -107,6 +108,15 @@ fun BadgeCard(
                 text = badge.description,
                 color = descriptionColor,
                 fontSize = descriptionFontSize
+            )
+
+            // Badge rarity color
+            Spacer(modifier = Modifier.height(spacingBetween))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(1f)
+                    .height(4.dp)
+                    .background(effectiveIconTint)
             )
 
             // Footer text opcional (ej: "Unlock at 100 pts")
@@ -128,11 +138,11 @@ fun BadgeCard(
 private fun PreviewBadgeCard() {
     val sampleBadge = Badge(
         id = "sample_badge",
-        name = "Epic Explorer",
-        description = "Unlocked by reaching 100 points.",
+        name = "Completa una lección",
+        description = "Finaliza de forma exitosa una lección.",
         iconResId = android.R.drawable.star_on,
         rarity = BadgeRarity.EPIC,
-        condition = PointsThresholdCondition(100)
+        condition = PointsThresholdCondition(50)
     )
 
     BadgeCard(
@@ -141,7 +151,7 @@ private fun PreviewBadgeCard() {
         backgroundColor = Color(0xFF121212),
         titleColor = Color.White,
         descriptionColor = Color.LightGray,
-        iconTint = null, // usa color por rareza
+        iconTint = null,
         elevation = 8.dp,
         cornerRadius = 16.dp
     )

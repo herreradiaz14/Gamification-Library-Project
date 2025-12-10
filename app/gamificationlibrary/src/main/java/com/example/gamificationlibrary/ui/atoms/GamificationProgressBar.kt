@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 fun GamificationProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
-    progressBrush: Brush = Brush.horizontalGradient(listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))), // ✅ default gradient
+    progressBrush: Brush = Brush.horizontalGradient(listOf(Color(0xFF00b783), Color(0xFF00b783))), // ✅ default gradient
     backgroundColor: Color = Color.LightGray,
     height: Dp = 8.dp,
     cornerRadius: Dp = 4.dp

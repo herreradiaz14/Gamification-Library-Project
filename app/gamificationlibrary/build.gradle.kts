@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("maven-publish") // Apply the maven-publish plugin
+    id("org.jetbrains.dokka") version "1.9.20"
 }
 
 android {

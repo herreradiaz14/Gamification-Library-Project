@@ -35,46 +35,42 @@ Optional UI helpers for quick integration.
 ## 🧱 Architecture
 
 The library is divided into independent modules:
-
-com.example.gamificationlibrary
-|
-+-- core
-| +-- EventBus
-| +-- GamificationEngine
-| +-- events
-|
-+-- points
-| +-- PointsManager
-| +-- PointsData
-| +-- PointTransaction
-|
-+-- levels
-| +-- LevelManager
-| +-- LevelConfig
-| +-- LevelData
-|
-+-- badges
-| +-- BadgeManager
-| +-- Badge
-| +-- BadgeRules
-|
-+-- leaderboard
-| +-- LeaderboardManager
-| +-- LeaderboardEntry
-|
-+-- storage
-| +-- IGamificationStorage
-| +-- StorageModule
-| +-- room
-| +-- (optional implementation)
-|
-+-- ui
-+-- PointsView
-+-- LevelProgressBar
-+-- BadgeListView
-
-
-
+com.example.gamificationlibrary<br/>
+│<br/>
+├── core<br/>
+│ ├── EventBus<br/>
+│ ├── GamificationEngine<br/>
+│ └── events<br/>
+│<br/>
+├── points<br/>
+│ ├── PointsManager<br/>
+│ ├── PointsData<br/>
+│ └── PointTransaction<br/>
+│<br/>
+├── levels<br/>
+│ ├── LevelManager<br/>
+│ ├── LevelConfig<br/>
+│ └── LevelData<br/>
+│
+├── badges<br/>
+│ ├── BadgeManager<br/>
+│ ├── Badge<br/>
+│ └── BadgeRules<br/>
+│<br/>
+├── leaderboard<br/>
+│ ├── LeaderboardManager<br/>
+│ └── LeaderboardEntry<br/>
+│<br/>
+├── storage<br/>
+│ ├── IGamificationStorage<br/>
+│ ├── StorageModule<br/>
+│ └── room<br/>
+│ └── (optional implementation)<br/>
+│<br/>
+└── ui<br/>
+├── PointsView<br/>
+├── LevelProgressBar<br/>
+└── BadgeListView<br/>
 
 
 ## 📥 Installation

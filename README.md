@@ -1,15 +1,15 @@
-🎮 Gamification Library for Android
+## 🎮 Gamification Library for Android
 
 A modular, Kotlin-based gamification engine designed for educational and interactive apps.
 
-📦 Overview
+## 📦 Overview
 
 The Gamification Library provides reusable, modular components to easily integrate game-like mechanics into Android applications.
 It is designed with Kotlin, follows SOLID, and is built on a component-based architecture to ensure flexibility, extensibility, and high maintainability.
 
 This library is currently used in an English-learning mobile app for children, supporting categories such as Listening, Speaking, Reading, and Writing.
 
-✨ Features
+## ✨ Features
 
 ✔ Points System
 Add, deduct, and query points with full transaction tracking.
@@ -32,45 +32,47 @@ Abstracted storage interface (IGamificationStorage) for any database implementat
 ✔ UI Components (Jetpack Compose)
 Optional UI helpers for quick integration.
 
-🧱 Architecture
+## 🧱 Architecture
 
 The library is divided into independent modules:
 com.example.gamificationlibrary
 │
-├── core
-│   ├── EventBus
-│   ├── GamificationEngine
-│   └── events/
+├── `core`
+│   ├── `EventBus`
+│   ├── `GamificationEngine`
+│   └── `events/`
 │
-├── points
-│   ├── PointsManager
-│   ├── PointsData
-│   └── PointTransaction
+├── `points`
+│   ├── `PointsManager`
+│   ├── `PointsData`
+│   └── `PointTransaction`
 │
-├── levels
-│   ├── LevelManager
-│   ├── LevelConfig
-│   └── LevelData
+├── `levels`
+│   ├── `LevelManager`
+│   ├── `LevelConfig`
+│   └── `LevelData`
 │
-├── badges
-│   ├── BadgeManager
-│   ├── Badge
-│   └── BadgeRules
+├── `badges`
+│   ├── `BadgeManager`
+│   ├── `Badge`
+│   └── `BadgeRules`
 │
-├── leaderboard
-│   ├── LeaderboardManager
-│   └── LeaderboardEntry
+├── `leaderboard`
+│   ├── `LeaderboardManager`
+│   └── `LeaderboardEntry`
 │
-├── storage
-│   ├── IGamificationStorage
-│   ├── StorageModule
-│   └── room (optional implementation)
+├── `storage`
+│   ├── `IGamificationStorage`
+│   ├── `StorageModule`
+│   └── `room` (optional implementation)
 │
-└── ui (optional)
-├── PointsView
-├── LevelProgressBar
-└── BadgeListView
-📥 Installation
+└── `ui` (optional)
+├── `PointsView`
+├── `LevelProgressBar`
+└── `BadgeListView`
+
+
+## 📥 Installation
 1. Add the dependency
 
 If published through Maven Central / JitPack:
@@ -92,13 +94,14 @@ If you prefer to use it as a local module:
 
 settings.gradle.kts:
 include(":gamification-library")
-🚀 Quick Start
+
+# 🚀 Quick Start
 Initialize the Gamification Engine
 val gamification = GamificationEngine(
 storage = MyRoomGamificationStorage(),  // Your implementation
 )
 
-🟡 Points System
+## 🟡 Points System
 Add / Deduct Points
 gamification.points.addPoints(userId = "user1", amount = 10)
 gamification.points.deductPoints("user1", 5)
@@ -111,7 +114,7 @@ EventBus.subscribe(PointEvents.PointsChanged::class) { event ->
 println("New points: ${event.newTotal}")
 }
 
-🔵 Levels System
+## 🔵 Levels System
 val config = LevelConfig(
 levelThresholds = listOf(0, 50, 120, 250)
 )
@@ -119,7 +122,7 @@ levelThresholds = listOf(0, 50, 120, 250)
 gamification.levels.initialize("user1", config)
 gamification.levels.addExperience("user1", 20)
 
-🟢 Badges
+## 🟢 Badges
 gamification.badges.registerBadge(
 Badge(
 id = "first_win",
@@ -130,11 +133,11 @@ description = "Earned after completing the first correct challenge",
 
 gamification.badges.unlockBadge("user1", "first_win")
 
-🔴 Leaderboard
+## 🔴 Leaderboard
 gamification.leaderboard.updateScore("user1", 250)
 val top = gamification.leaderboard.getTop(10)
 
-💾 Storage Layer
+## 💾 Storage Layer
 
 You must implement:
 
@@ -165,7 +168,7 @@ fun PointsView(points: Int) { … }
 @Composable
 fun LevelProgressBar(level: Int, progress: Float) { … }
 
-⚙️ Configuration
+## ⚙️ Configuration
 
 Create a central configuration file in your app:
 
@@ -175,24 +178,22 @@ const val LEVEL_UP_MULTIPLIER = 1.3f
 }
 
 
-📄 License
+## 📄 License
 
 This library is released under the MIT License.
 You are free to use it in commercial and open-source projects.
 
-🙌 Acknowledgments
+## 🙌 Acknowledgments
 
 This library was originally developed as part of an educational mobile app for children, with the goal of improving engagement and learning through well-designed gamification mechanics.
 
 
-📚 Documentation
+## 📚 Documentation
 
 The complete automatically generated documentation is available here:
 
 
-//[gamificationlibrary](index.md)
-
-# gamificationlibrary
+# [gamificationlibrary](index.md)
 
 ## Packages
 

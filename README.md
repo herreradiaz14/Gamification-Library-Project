@@ -37,49 +37,42 @@ Optional UI helpers for quick integration.
 The library is divided into independent modules:
 
 com.example.gamificationlibrary
-│
-├── core
-│   │
-│   ├── EventBus
-│   ├── GamificationEngine
-│   └── events
-│
-├── points
-│   │
-│   ├── PointsManager
-│   ├── PointsData
-│   └── PointTransaction
-│
-├── levels
-│   │
-│   ├── LevelManager
-│   ├── LevelConfig
-│   └── LevelData
-│
-├── badges
-│   │
-│   ├── BadgeManager
-│   ├── Badge
-│   └── BadgeRules
-│
-├── leaderboard
-│   │
-│   ├── LeaderboardManager
-│   └── LeaderboardEntry
-│
-├── storage
-│   │
-│   ├── IGamificationStorage
-│   ├── StorageModule
-│   └── room
-│       │
-│       └── (optional implementation)
-│
-└── ui
-│
-├── PointsView
-├── LevelProgressBar
-└── BadgeListView
+|
++-- core
+| +-- EventBus
+| +-- GamificationEngine
+| +-- events
+|
++-- points
+| +-- PointsManager
+| +-- PointsData
+| +-- PointTransaction
+|
++-- levels
+| +-- LevelManager
+| +-- LevelConfig
+| +-- LevelData
+|
++-- badges
+| +-- BadgeManager
+| +-- Badge
+| +-- BadgeRules
+|
++-- leaderboard
+| +-- LeaderboardManager
+| +-- LeaderboardEntry
+|
++-- storage
+| +-- IGamificationStorage
+| +-- StorageModule
+| +-- room
+| +-- (optional implementation)
+|
++-- ui
++-- PointsView
++-- LevelProgressBar
++-- BadgeListView
+
 
 
 

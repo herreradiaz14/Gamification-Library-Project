@@ -35,41 +35,53 @@ Optional UI helpers for quick integration.
 ## 🧱 Architecture
 
 The library is divided into independent modules:
+
 com.example.gamificationlibrary
 │
-├── `core`
-│   ├── `EventBus`
-│   ├── `GamificationEngine`
-│   └── `events/`
+├── core
+│   │
+│   ├── EventBus
+│   ├── GamificationEngine
+│   └── events
 │
-├── `points`
-│   ├── `PointsManager`
-│   ├── `PointsData`
-│   └── `PointTransaction`
+├── points
+│   │
+│   ├── PointsManager
+│   ├── PointsData
+│   └── PointTransaction
 │
-├── `levels`
-│   ├── `LevelManager`
-│   ├── `LevelConfig`
-│   └── `LevelData`
+├── levels
+│   │
+│   ├── LevelManager
+│   ├── LevelConfig
+│   └── LevelData
 │
-├── `badges`
-│   ├── `BadgeManager`
-│   ├── `Badge`
-│   └── `BadgeRules`
+├── badges
+│   │
+│   ├── BadgeManager
+│   ├── Badge
+│   └── BadgeRules
 │
-├── `leaderboard`
-│   ├── `LeaderboardManager`
-│   └── `LeaderboardEntry`
+├── leaderboard
+│   │
+│   ├── LeaderboardManager
+│   └── LeaderboardEntry
 │
-├── `storage`
-│   ├── `IGamificationStorage`
-│   ├── `StorageModule`
-│   └── `room` (optional implementation)
+├── storage
+│   │
+│   ├── IGamificationStorage
+│   ├── StorageModule
+│   └── room
+│       │
+│       └── (optional implementation)
 │
-└── `ui` (optional)
-├── `PointsView`
-├── `LevelProgressBar`
-└── `BadgeListView`
+└── ui
+│
+├── PointsView
+├── LevelProgressBar
+└── BadgeListView
+
+
 
 
 ## 📥 Installation
@@ -188,12 +200,9 @@ You are free to use it in commercial and open-source projects.
 This library was originally developed as part of an educational mobile app for children, with the goal of improving engagement and learning through well-designed gamification mechanics.
 
 
-## 📚 Documentation
+## 📚 [Documentation](index.md)
 
 The complete automatically generated documentation is available here:
-
-
-# [gamificationlibrary](index.md)
 
 ## Packages
 
